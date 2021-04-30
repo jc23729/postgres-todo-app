@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const pool = require("pool");
+const pool = require('pool');
 
 app.use(express.json());  // =>req.body
 
@@ -18,7 +18,7 @@ app.post('/todos', async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-})
+});
 
 // Update a todo
 

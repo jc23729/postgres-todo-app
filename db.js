@@ -10,7 +10,6 @@ const pool = new Pool({
 module.exports = pool;
 
 
-
 /** Database setup other method */
 
 // const { Client } = require("pg");
