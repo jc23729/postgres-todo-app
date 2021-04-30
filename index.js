@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const pool = require("pool");
 
-app.use(express.json());
+app.use(express.json());  // =>req.body
 
 //ROUTES//
 
@@ -11,6 +11,14 @@ app.use(express.json());
 // get a todo
 
 // Create a todo
+app.post('/todos', async (req, res) => {
+  try {
+    //await
+    console.log(req.body);
+  } catch (err) {
+    console.error(err.message);
+  }
+})
 
 // Update a todo
 
