@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const pool = require('pool');
+const { Client } = require("pg");
 
-app.use(express.json());  // =>req.body
+app.use(express.json())  // =>req.body
 
 //ROUTES//
 
