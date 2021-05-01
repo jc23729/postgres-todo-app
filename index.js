@@ -21,13 +21,13 @@ app.get("/todos", async (req, res) => {
 });
 
 // get a todo
-//when you do a app.get("/todos/:id"  colon, you are able to acess it as a variable as req.params.id
+//when you do a app.get("/todos/:id"  colon, you are able to acess it as a variable as req.params
 
 app.get("/todos/:id", async (req, res) => {
   // console.log(req.params.id);
   const { id } = req.params;
   try {
-    const todos = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [
+    const todos = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [ //same thing SELECT ALL FROM todo WHERE the todo_id is 
       id,
     ]);
     res.json(todos.rows[0]);
@@ -39,8 +39,9 @@ app.get("/todos/:id", async (req, res) => {
 // create a todo
 app.put("/todos", async (req, res) => {
   try {
-    const { description } = req.body;//your looking for the description that you setup before 
-    const newTodo = await pool.query(         //you INSERT INTO todo and WHERE description, with the value of $1
+    const { description } = req.body; //your looking for the description that you setup before
+    const newTodo = await pool.query(
+      //you INSERT INTO todo and WHERE description, with the value of $1
       "INSERT INTO todo (description) VALUES ($1) RETURNING *",
       [description]
     );
