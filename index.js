@@ -21,6 +21,7 @@ app.get("/todos", async (req, res) => {
 });
 
 // get a todo
+//when you do a app.get("/todos/:id"  colon, you are able to acess it as a variable as req.params.id
 
 app.get("/todos/:id", async (req, res) => {
   // console.log(req.params.id);
