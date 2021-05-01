@@ -22,6 +22,8 @@ app.get("/todos", async (req, res) => {
 
 // get a todo
 //when you do a app.get("/todos/:id"  colon, you are able to acess it as a variable as req.params
+//SO IN POSTMAN you would input something like this     GET     http://localhost:3000/todos/3 and
+//find that single element like and array almost 
 
 app.get("/todos/:id", async (req, res) => {
   // console.log(req.params.id);
