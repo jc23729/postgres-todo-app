@@ -23,13 +23,14 @@ app.get("/todos", async (req, res) => {
 // get a todo
 //when you do a app.get("/todos/:id"  colon, you are able to acess it as a variable as req.params
 //SO IN POSTMAN you would input something like this     GET     http://localhost:3000/todos/3 and
-//find that single element like and array almost 
+//find that single element like and array almost
 
 app.get("/todos/:id", async (req, res) => {
   // console.log(req.params.id);
   const { id } = req.params;
   try {
-    const todos = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [ //same thing SELECT ALL FROM todo WHERE the todo_id is 
+    const todos = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [
+      //same thing SELECT ALL FROM todo WHERE the todo_id is
       id,
     ]);
     res.json(todos.rows[0]);
@@ -55,15 +56,43 @@ app.put("/todos", async (req, res) => {
   }
 });
 
+
+
+
+
 // update a todo
+
+// [
+//   {
+//     todo_id: 1,
+//     description: "I need to clean my car",
+//   },
+//   {
+//     todo_id: 3,
+//     description: "I need to study for 4 hours minimum",
+//   },
+//   {
+//     todo_id: 4,
+//     description: "I need to study for 4 hours minimum",
+//   },
+//   {
+//     todo_id: 2,
+//     description: "I need to eat dinner",
+//   },
+// ];
+
+
+// so if you wanted to change todo_id: 3 you would do http://localhost:3000/todos/3 and change
+//   the description: "I need to walk Apollo" or whatever you want to change it to
+
 app.put("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params; //WHERE
     const { description } = req.body; //SET
-    
+
     const updateTodo = await pool.query(
       "UPDATE todo SET description = $1 WHERE todo_id = $2",
-      //$1 is the description and , $2 is the id 
+      //$1 is the description and , $2 is the id
       [description, id]
     );
     // //await
