@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const pool = require("pool");
-const { Client } = require("pg");
+
 
 app.use(express.json()); // =>req.body
 
@@ -11,21 +11,22 @@ app.use(express.json()); // =>req.body
 
 // get a todo
 
-// Create a todo
-app.post("/todos", async (req, res) => {
-  try {
-    //await
-    const { description } = req.body;
+  // create a todo
+app.put('/todos', async (req, res) => {
+  try{
+    const {description} = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO todo (description) VALUES ($1) RETURNING * ",
+      "INSERT INTO todo (description) VALUES ($1) RETURNING *",
       [description]
     );
-    res.json(newTodo);
-  } catch (err) {
+    // //await
+    // console.log(req.body);
+    res.json(newTodo.rows[0]);
+
+  }catch(err){
     console.error(err.message);
   }
 });
-
 // Update a todo
 
 // Delete a todo
