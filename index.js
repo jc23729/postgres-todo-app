@@ -60,9 +60,10 @@ app.put("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params; //WHERE
     const { description } = req.body; //SET
-
+    
     const updateTodo = await pool.query(
       "UPDATE todo SET description = $1 WHERE todo_id = $2",
+      //$1 is the description and , $2 is the id 
       [description, id]
     );
     // //await
