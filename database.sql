@@ -24,3 +24,7 @@ CREATE TABLE todo(
 --  \dt —- List all tables (in current db)
 --  \d TABLE_NAME — Get details about TABLE_NAME (in current db)
 --  \q — Quit psql (can also type <Control-D>)
+
+
+-- Show details
+--  \d+ TABLE_NAME
