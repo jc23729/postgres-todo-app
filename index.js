@@ -15,7 +15,12 @@ app.use(express.json()); // =>req.body
 app.post("/todos", async (req, res) => {
   try {
     //await
-    console.log(req.body);
+    const { description } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO todo (description) VALUES ($1) RETURNING * ",
+      [description]
+    );
+    res.json(newTodo);
   } catch (err) {
     console.error(err.message);
   }
@@ -27,4 +32,4 @@ app.post("/todos", async (req, res) => {
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
-})
+});
