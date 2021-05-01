@@ -38,8 +38,8 @@ app.get("/todos/:id", async (req, res) => {
 // create a todo
 app.put("/todos", async (req, res) => {
   try {
-    const { description } = req.body;
-    const newTodo = await pool.query(
+    const { description } = req.body;//your looking for the description that you setup before 
+    const newTodo = await pool.query(         //you INSERT INTO todo and WHERE description, with the value of $1
       "INSERT INTO todo (description) VALUES ($1) RETURNING *",
       [description]
     );
