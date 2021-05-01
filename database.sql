@@ -25,6 +25,6 @@ CREATE TABLE todo(
 --  \d TABLE_NAME — Get details about TABLE_NAME (in current db)
 --  \q — Quit psql (can also type <Control-D>)
 
-
+-- todo_database=# SELECT * FROM todo; will pull up all todos 
 -- Show details
 --  \d+ TABLE_NAME
