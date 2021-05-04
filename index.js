@@ -56,10 +56,6 @@ app.put("/todos", async (req, res) => {
   }
 });
 
-
-
-
-
 // update a todo
 
 // [
@@ -80,7 +76,6 @@ app.put("/todos", async (req, res) => {
 //     description: "I need to eat dinner",
 //   },
 // ];
-
 
 // so if you wanted to change todo_id: 3 you would do http://localhost:3000/todos/3 and change
 //   the description: "I need to walk Apollo" or whatever you want to change it to
@@ -246,7 +241,6 @@ app.listen(3000, function () {
 
 // module.exports = db;
 
-
 // Queries
 // Making our first query
 // demo/simple/routes/users.js
@@ -275,13 +269,18 @@ router.get("/", async function (req, res, next) {
 
 /** Search by user type. */
 
-
-
 router.get("/search", async function (req, res, next) {
   try {
     const type = req.query.type;
 
-      const results = await db.query(
+    const results = await db.query(
       `SELECT id, name, type 
        FROM users
-       WHERE type='${type}'`);
+       WHERE type='${type}'`
+    );
+
+    return res.json(results.rows);
+  } catch (err) {
+    return next(err);
+  }
+});
