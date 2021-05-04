@@ -274,3 +274,9 @@ router.get("/", async function (req, res, next) {
 });
 
 /** Search by user type. */
+
+
+
+router.get("/search", async function (req, res, next) {
+  try {
+    const type = req.query.type;
