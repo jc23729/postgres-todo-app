@@ -247,16 +247,16 @@ app.listen(3000, function () {
 // module.exports = db;
 
 
-Queries
-Making our first query
-demo/simple/routes/users.js
-const db = require("../db");
-demo/simple/routes/users.js
-/** Get users: [user, user, user] */
+// Queries
+// Making our first query
+// demo/simple/routes/users.js
+// const db = require("../db");
+// demo/simple/routes/users.js
+// /** Get users: [user, user, user] */
 
-router.get("/all", function (req, res, next) {
-  const results = db.query(
-        `SELECT * FROM users`);
+// router.get("/all", function (req, res, next) {
+//   const results = db.query(
+//         `SELECT * FROM users`);
 
-  return res.json(results.rows);
-});
+//   return res.json(results.rows);
+// });
