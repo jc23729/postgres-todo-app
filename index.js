@@ -217,9 +217,6 @@ app.listen(3000, function () {
 // Copy to clipboardErrorCopied
 // // Use this to do fast (but not exact) counts from tables. Helpful if table has millions / billions of records and you just want estimated rows quickly. (SQL)
 
-// const express = require("express");
-// const app = express();
-// const pool = require("pool");
 
 // app.use(express.json()); // =>req.body
 
