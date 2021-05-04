@@ -217,4 +217,31 @@ app.listen(3000, function () {
 // Copy to clipboardErrorCopied
 // // Use this to do fast (but not exact) counts from tables. Helpful if table has millions / billions of records and you just want estimated rows quickly. (SQL)
 
+// pg
+// Similar to psycopg2 with python
+// Allows us to establish a connection to a database and execute SQL
+// $ npm install pg
 
+// Using pg
+// It’s common to abstract this logic to another file, so let’s create a file db.js:
+
+// demo/simple/db.js
+// /** Database setup for users. */
+
+// const { Client } = require("pg");
+
+// let DB_URI;
+
+// if (process.env.NODE_ENV === "test") {
+//   DB_URI = "postgresql:///users_test";
+// } else {
+//   DB_URI = "postgresql:///users";
+// }
+
+// let db = new Client({
+//   connectionString: DB_URI
+// });
+
+// db.connect();
+
+// module.exports = db;
