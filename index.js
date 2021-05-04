@@ -262,3 +262,11 @@ app.listen(3000, function () {
 // });
 
 /** (Fixed) Get users: [user, user, user] */
+
+router.get("/", async function (req, res, next) {
+  try {
+    const results = await db.query(
+          `SELECT id, name, type FROM users`);
+
+    return res.json(results.rows);
+  }
