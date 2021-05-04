@@ -257,30 +257,30 @@ app.listen(3000, function () {
 
 /** (Fixed) Get users: [user, user, user] */
 
-router.get("/", async function (req, res, next) {
-  try {
-    const results = await db.query(`SELECT id, name, type FROM users`);
+// router.get("/", async function (req, res, next) {
+//   try {
+//     const results = await db.query(`SELECT id, name, type FROM users`);
 
-    return res.json(results.rows);
-  } catch (err) {
-    return next(err);
-  }
-});
+//     return res.json(results.rows);
+//   } catch (err) {
+//     return next(err);
+//   }
+// });
 
-/** Search by user type. */
+// /** Search by user type. */
 
-router.get("/search", async function (req, res, next) {
-  try {
-    const type = req.query.type;
+// router.get("/search", async function (req, res, next) {
+//   try {
+//     const type = req.query.type;
 
-    const results = await db.query(
-      `SELECT id, name, type 
-       FROM users
-       WHERE type='${type}'`
-    );
+//     const results = await db.query(
+//       `SELECT id, name, type 
+//        FROM users
+//        WHERE type='${type}'`
+//     );
 
-    return res.json(results.rows);
-  } catch (err) {
-    return next(err);
-  }
-});
+//     return res.json(results.rows);
+//   } catch (err) {
+//     return next(err);
+//   }
+// });
