@@ -265,8 +265,10 @@ app.listen(3000, function () {
 
 router.get("/", async function (req, res, next) {
   try {
-    const results = await db.query(
-          `SELECT id, name, type FROM users`);
+    const results = await db.query(`SELECT id, name, type FROM users`);
 
     return res.json(results.rows);
+  } catch (err) {
+    return next(err);
   }
+});
