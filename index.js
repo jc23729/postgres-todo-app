@@ -260,3 +260,5 @@ app.listen(3000, function () {
 
 //   return res.json(results.rows);
 // });
+
+/** (Fixed) Get users: [user, user, user] */
