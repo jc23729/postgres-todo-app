@@ -280,3 +280,8 @@ router.get("/", async function (req, res, next) {
 router.get("/search", async function (req, res, next) {
   try {
     const type = req.query.type;
+
+      const results = await db.query(
+      `SELECT id, name, type 
+       FROM users
+       WHERE type='${type}'`);
